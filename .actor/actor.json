@@ -1,0 +1,22 @@
+{
+  "actorSpecification": 1,
+  "name": "jp-law-search",
+  "title": "Japanese Law Search (e-Gov 法令API)",
+  "description": "Search Japanese laws by title and fetch article text from the official e-Gov 法令API v2. Returns clean JSON: law ID, number, title, category, enforcement date, and article text with paragraphs and items.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {"fields": ["lawTitle", "lawNum", "articleTitle", "articleCaption", "category", "enforcementDate", "url"]},
+          "display": {"component": "table"}
+        }
+      }
+    }
+  }
+}

@@ -41,12 +41,14 @@ class EgovClient:
                     continue
                 raise
 
-    def search_laws(self, title=None, law_num=None, limit=10, offset=0):
+    def search_laws(self, title=None, law_num=None, law_id=None, limit=10, offset=0):
         params = {"limit": limit, "offset": offset}
         if title:
             params["law_title"] = title
         if law_num:
             params["law_num"] = law_num
+        if law_id:
+            params["law_id"] = law_id
         return self._get("laws", params)
 
     def get_article(self, law_id, article):

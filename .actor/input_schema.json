@@ -1,0 +1,35 @@
+{
+  "title": "Japanese Law Search input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "lawTitle": {
+      "title": "Law title keyword (法令名)",
+      "type": "string",
+      "description": "Part of a law title, e.g. 消費税法, 電子帳簿, 労働基準法. Leave empty if you give lawIds.",
+      "editor": "textfield",
+      "prefill": "消費税法"
+    },
+    "lawIds": {
+      "title": "Law IDs (法令ID)",
+      "type": "array",
+      "description": "Exact e-Gov law IDs, e.g. 363AC0000000108 (消費税法). Used instead of a title search.",
+      "editor": "stringList"
+    },
+    "articles": {
+      "title": "Articles to fetch (条番号)",
+      "type": "array",
+      "description": "Article numbers to fetch for each matched law. Use 30 for 第30条, 57_4 for 第57条の4. Leave empty to return law metadata only.",
+      "editor": "stringList",
+      "prefill": ["30"]
+    },
+    "maxLaws": {
+      "title": "Max laws",
+      "type": "integer",
+      "description": "Maximum number of laws to return from the title search.",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 100
+    }
+  }
+}
